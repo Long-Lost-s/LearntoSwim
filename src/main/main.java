@@ -13,6 +13,8 @@ public class main {
         // Lấy PhoneBook từ singleton PhoneBookManager
         PhoneBookManager phoneBookManager = PhoneBookManager.getInstance();
         PhoneBook phoneBook = phoneBookManager.getPhoneBook();
+        LoadCommand loadCommand = new LoadCommand("phonebook.csv", "csv");
+        loadCommand.execute(phoneBook);
 
         // Khởi tạo Menu và hiển thị
         Menu menu = new Menu(phoneBook);

@@ -21,8 +21,7 @@ public class CSVFileManager implements FileOperations{
     }
 
     @Override
-    public PhoneBook loadPhoneBook(String filename) throws IOException, PhoneBookException {
-        PhoneBook phoneBook = new PhoneBook();
+    public PhoneBook loadPhoneBook(PhoneBook phoneBook, String filename) throws IOException, PhoneBookException {
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
             while ((line = reader.readLine()) != null) {

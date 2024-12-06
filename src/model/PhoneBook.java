@@ -5,7 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PhoneBook implements Serializable {
-    private List<Contact> contacts = new ArrayList<>();
+    private List<Contact> contacts;
+
+    public PhoneBook() {
+        this.contacts = new ArrayList<>();
+    }
 
     public void addContact(Contact contact) {
         contacts.add(contact);

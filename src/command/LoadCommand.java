@@ -18,8 +18,8 @@ public class LoadCommand implements Command {
     public void execute(PhoneBook phoneBook) {
         FileOperations fileManager = FileManagerFactory.getFileManager(fileType);
         try {
-            PhoneBook loadedPhoneBook = fileManager.loadPhoneBook(filename);
-            for (Contact contact : loadedPhoneBook.getContacts()) {
+            fileManager.loadPhoneBook(phoneBook, filename);
+            for (Contact contact : phoneBook.getContacts()) {
                 System.out.println(contact);
             }
         } catch (Exception e) {

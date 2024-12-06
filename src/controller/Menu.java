@@ -18,7 +18,7 @@ public class Menu {
     }
 
     public void show() {
-        while (true) {
+                while (true) {
             showMenu();
             int choice = scanner.nextInt();
             scanner.nextLine();  // Đọc dòng mới để bỏ qua ký tự Enter

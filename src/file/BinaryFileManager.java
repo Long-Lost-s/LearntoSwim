@@ -16,7 +16,7 @@ public class BinaryFileManager implements FileOperations{
     }
 
     @Override
-    public PhoneBook loadPhoneBook(String filename) throws IOException, PhoneBookException {
+    public PhoneBook loadPhoneBook(PhoneBook phoneBook, String filename) throws IOException, PhoneBookException {
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename))) {
             return (PhoneBook) in.readObject();
         } catch (ClassNotFoundException e) {
