@@ -5,6 +5,7 @@ import command.SaveCommand;
 import model.Contact;
 import model.PhoneBook;
 
+import java.io.File;
 import java.util.Scanner;
 
 public class Menu {
@@ -109,6 +110,11 @@ public class Menu {
     }
 
     private void loadPhoneBookFromCSV() {
+        File file = new File("phonebook.csv");
+        if (!file.exists()) {
+            System.out.println("Tệp CSV không tồn tại.");
+            return;
+        }
         LoadCommand loadCSVCommand = new LoadCommand("phonebook.csv", "csv");
         loadCSVCommand.execute(phoneBook);
         System.out.println("Danh bạ đã được tải từ file CSV.");
@@ -116,6 +122,11 @@ public class Menu {
     }
 
     private void loadPhoneBookFromBinary() {
+        File file = new File("phonebook.dat");
+        if (!file.exists()) {
+            System.out.println("Tệp nhị phân không tồn tại.");
+            return;
+        }
         LoadCommand loadBinaryCommand = new LoadCommand("phonebook.dat", "binary");
         loadBinaryCommand.execute(phoneBook);
         System.out.println("Danh bạ đã được tải từ file nhị phân.");
