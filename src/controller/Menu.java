@@ -147,18 +147,10 @@ public class Menu {
     private void deleteContact() {
         System.out.print("Nhập tên liên hệ cần xóa: ");
         String name = scanner.nextLine();
-        boolean found = false;
-
-        for (Contact contact : phoneBook.getContacts()) {
-            if (contact.getName().equalsIgnoreCase(name)) {
-                phoneBook.removeContact(contact);
-                System.out.println("Liên hệ '" + name + "' đã được xóa.");
-                found = true;
-                break;
-            }
-        }
-
-        if (!found) {
+        boolean removed = phoneBook.getContacts().removeIf(contact -> contact.getName().equalsIgnoreCase(name));
+        if (removed) {
+            System.out.println("Liên hệ '" + name + "' đã được xóa.");
+        } else {
             System.out.println("Không tìm thấy liên hệ với tên: " + name);
         }
     }
